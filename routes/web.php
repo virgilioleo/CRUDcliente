@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
+//use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('clientes', [ClienteController::class, 'index']);
+Route::post('clientes', [ClienteController::class, 'store']);
+Route::get('buscar-clientes', [ClienteController::class, 'buscarcliente']);
+Route::get('editar-clientes/{id}', [ClienteController::class, 'edit']);
+Route::put('update-cliente/{id}', [ClienteController::class, 'update']);
+Route::delete('delete-cliente/{id}', [ClienteController::class, 'destroy']);    
+
