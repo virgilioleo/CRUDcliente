@@ -13,7 +13,7 @@ class ClienteController extends Controller
         return view('cliente.index');
     }
 
-    public function fetchstudent()
+    public function buscarcliente()
     {
         $clientes = Cliente::all();
         return response()->json([
@@ -54,10 +54,7 @@ class ClienteController extends Controller
         $cliente = Cliente::find($id);
         if($cliente)
         {
-            return response()->json([
-                'status'=>200,
-                'cliente'=> $cliente,
-            ]);
+            return response()->json($cliente);
         }
         else
         {
