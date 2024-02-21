@@ -38,7 +38,7 @@ class ClienteController extends Controller
         else
         {
             $cliente = new Cliente;
-            $cliente->name = $request->input('name');
+            $cliente->name = $request->input('nome');
             $cliente->email = $request->input('email');
             $cliente->save();
             return response()->json([

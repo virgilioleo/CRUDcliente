@@ -14,10 +14,10 @@ class CreateClientesTable extends Migration
     public function up()
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('nome');
             $table->string('email');
-            $table->timestamp();
+            $table->timestamps('created_at');
         });
     }
 
