@@ -24,7 +24,7 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name'=> 'required|max:191',
+            'nome'=> 'required|max:191',
             'email'=>'required|email|max:191',
         ]);
 
@@ -38,7 +38,7 @@ class ClienteController extends Controller
         else
         {
             $cliente = new Cliente;
-            $cliente->name = $request->input('nome');
+            $cliente->nome = $request->input('nome');
             $cliente->email = $request->input('email');
             $cliente->save();
             return response()->json([
@@ -69,7 +69,7 @@ class ClienteController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name'=> 'required|max:191',
+            'nome'=> 'required|max:191',
             'email'=>'required|email|max:191',
         ]);
 
@@ -85,7 +85,7 @@ class ClienteController extends Controller
             $cliente = Cliente::find($id);
             if($cliente)
             {
-                $cliente->name = $request->input('nome');
+                $cliente->nome = $request->input('nome');
                 $cliente->email = $request->input('email');
                 $cliente->update();
                 return response()->json([

@@ -14,8 +14,8 @@
                     <ul id="save_msgList"></ul>
 
                     <div class="form-group mb-3">
-                        <label for="">Full Name</label>
-                        <input type="text" required class="name form-control">
+                        <label for="">Nome</label>
+                        <input type="text" required class="nome form-control">
                     </div>
                     <div class="form-group mb-3">
                         <label for="">Email</label>
@@ -45,11 +45,11 @@
 
                     <ul id="update_msgList"></ul>
 
-                    <input type="hidden" id="cliente_id" />
+                    <input type="hidden" id="cli_id" />
 
                     <div class="form-group mb-3">
-                        <label for="">Full Name</label>
-                        <input type="text" id="name" required class="form-control">
+                        <label for="">Nome</label>
+                        <input type="text" id="nome" required class="form-control">
                     </div>
                     <div class="form-group mb-3">
                         <label for="">Email</label>
@@ -108,7 +108,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
+                                    <th>Nome</th>
                                     <th>Email</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -136,12 +136,12 @@
                     url: "/buscar-clientes",
                     dataType: "json",
                     success: function(response) {
-                        // console.log(response);
+                        //console.log(response);
                         $('tbody').html("");
                         $.each(response.clientes, function(key, item) {
                             $('tbody').append('<tr>\
                     <td>' + item.id + '</td>\
-                    <td>' + item.name + '</td>\
+                    <td>' + item.nome + '</td>\
                     <td>' + item.email + '</td>\
                     <td><button type="button" value="' + item.id + '" class="btn btn-primary editbtn btn-sm">Edit</button></td>\
                     <td><button type="button" value="' + item.id + '" class="btn btn-danger deletebtn btn-sm">Delete</button></td>\
@@ -157,7 +157,7 @@
                 $(this).text('Sending..');
 
                 var data = {
-                    'name': $('.name').val(),
+                    'nome': $('.nome').val(),
                     'email': $('.email').val(),
                 }
 
@@ -209,11 +209,9 @@
                             $('#success_message').text(response.message);
                             $('#editModal').modal('hide');
                         } else {
-                            // console.log(response.cliente.name);
-                            $('#name').val(response.cliente.name);
-                            $('#course').val(response.cliente.course);
+                            // console.log(response.cliente.nome);
+                            $('#nome').val(response.cliente.nome);
                             $('#email').val(response.cliente.email);
-                            $('#phone').val(response.cliente.phone);
                             $('#cli_id').val(cli_id);
                         }
                     }
@@ -230,10 +228,8 @@
                 // alert(id);
 
                 var data = {
-                    'name': $('#name').val(),
-                    'course': $('#course').val(),
+                    'nome': $('#nome').val(),
                     'email': $('#email').val(),
-                    'phone': $('#phone').val(),
                 }
 
                 $.ajaxSetup({
