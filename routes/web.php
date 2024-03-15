@@ -16,7 +16,7 @@ use App\Http\Controllers\ClienteController;
 Route::get('clientes', [ClienteController::class, 'index']);
 Route::post('clientes', [ClienteController::class, 'store']);
 Route::get('buscar-clientes', [ClienteController::class, 'buscarcliente']);
-Route::get('editar-clientes/{id}', [ClienteController::class, 'edit']);
+Route::get('edit-cliente/{id}', [ClienteController::class, 'edit']);
 Route::put('update-cliente/{id}', [ClienteController::class, 'update']);
 Route::delete('delete-cliente/{id}', [ClienteController::class, 'destroy']);    
 

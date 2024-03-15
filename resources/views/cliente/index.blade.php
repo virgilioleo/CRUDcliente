@@ -209,9 +209,9 @@
                             $('#success_message').text(response.message);
                             $('#editModal').modal('hide');
                         } else {
-                            // console.log(response.cliente.nome);
-                            $('#nome').val(response.cliente.nome);
-                            $('#email').val(response.cliente.email);
+                            //console.log(response.cliente.nome);
+                            //$('#nome').val(response.cliente.nome);
+                            //$('#email').val(response.cliente.email);
                             $('#cli_id').val(cli_id);
                         }
                     }
